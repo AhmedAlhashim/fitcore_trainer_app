@@ -1,33 +1,18 @@
 import 'package:flutter/material.dart';
 import 'app_drawer.dart';
-import 'push_ups_page.dart';
-import 'plank_page.dart';
+import 'exercise_data.dart';
+
 
 class HomePage extends StatelessWidget {
-  final List<TrainingItem> trainingItems = [
-    TrainingItem(
-      title: 'Push Ups',
-      icon: Icons.fitness_center,
-      page: PushUpsPage(),
-    ),
-    TrainingItem(
-      title: 'Plank',
-      icon: Icons.accessibility_new,
-      page: PlankPage(),
-    ),
-    //Here I CAN Add more TrainingItem instances
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FitCore Trainer') ,
+        title: Text('FitCore Trainer'),
         backgroundColor: Color(0xFF4DB6AC),
       ),
       backgroundColor: Colors.white.withOpacity(0.8),
-
-      drawer: AppDrawer(),
+      drawer: AppDrawer(exercises: exercises),
       body: Center(
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -35,10 +20,10 @@ class HomePage extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
           ),
-          itemCount: trainingItems.length,
+          itemCount: exercises.length, // Use the length of the exercises list
           itemBuilder: (context, index) {
             return TrainingGridItem(
-              item: trainingItems[index],
+              exercise: exercises[index], // Pass the exercise item
             );
           },
         ),
@@ -47,28 +32,16 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class TrainingItem {
-  final String title;
-  final IconData icon;
-  final Widget page;
-
-  TrainingItem({
-    required this.title,
-    required this.icon,
-    required this.page,
-  });
-}
-
 class TrainingGridItem extends StatelessWidget {
-  final TrainingItem item;
+  final Exercise exercise;
 
-  TrainingGridItem({required this.item});
+  TrainingGridItem({required this.exercise});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => item.page));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => exercise.page));
       },
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -81,13 +54,13 @@ class TrainingGridItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                item.icon,
+                exercise.icon,
                 size: 40,
                 color: Colors.white,
               ),
               SizedBox(height: 5),
               Text(
-                item.title,
+                exercise.title,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14,

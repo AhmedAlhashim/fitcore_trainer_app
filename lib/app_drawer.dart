@@ -1,17 +1,42 @@
 import 'package:flutter/material.dart';
-import 'navigation_item.dart';
-import 'push_ups_page.dart';
-import 'plank_page.dart';
+
+import 'exercise_data.dart';
 
 class AppDrawer extends StatelessWidget {
+  final List<Exercise> exercises; // Receive the exercises list
+
+  AppDrawer({required this.exercises});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        children: <Widget>[
-          NavigationItem(title: 'Push Ups', page: PushUpsPage()),
-          NavigationItem(title: 'Plank', page: PlankPage()),
-        ],
+      child: Container(
+        color: Colors.white.withOpacity(0.8),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF4DB6AC),
+              ),
+              child: Text(
+                'FitCore Trainer',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                ),
+              ),
+            ),
+            for (var exercise in exercises) //  looping to generate the list
+              ListTile(
+                title: Text(exercise.title),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => exercise.page));
+                },
+              ),
+          ],
+        ),
       ),
     );
   }
