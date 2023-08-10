@@ -30,7 +30,10 @@ class _PushUpsPageState extends State<PushUpsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Push Ups'),
+        backgroundColor: Color(0xFF26A69A).withOpacity(0.8),
+
       ),
+      backgroundColor: Color(0xFFe6f0fa),
       body: PushUpsPageView(
         pushUpCount: pushUpCount,
         highestPushUpCount: highestPushUpCount,

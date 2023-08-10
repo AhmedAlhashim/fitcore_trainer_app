@@ -15,15 +15,18 @@ class HomePage extends StatelessWidget {
       icon: Icons.accessibility_new,
       page: PlankPage(),
     ),
-    // Add more TrainingItem instances as needed
+    //Here I CAN Add more TrainingItem instances
   ];
-
+// Design
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FitCore Trainer'),
+        title: Text('FitCore Trainer') ,
+        backgroundColor: Color(0xFF4DB6AC),
       ),
+      backgroundColor: Colors.white.withOpacity(0.8),
+
       drawer: AppDrawer(),
       body: Center(
         child: GridView.builder(
@@ -71,7 +74,7 @@ class TrainingGridItem extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Color(0xFF4DB6AC),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
@@ -79,7 +82,7 @@ class TrainingGridItem extends StatelessWidget {
             children: [
               Icon(
                 item.icon,
-                size: 40, // Adjust the icon size as needed
+                size: 40,
                 color: Colors.white,
               ),
               SizedBox(height: 5),
@@ -87,7 +90,7 @@ class TrainingGridItem extends StatelessWidget {
                 item.title,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 14, // Adjust the font size as needed
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),

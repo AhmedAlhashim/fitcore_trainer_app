@@ -54,7 +54,11 @@ class _PlankPageState extends State<PlankPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Plank'),
+        backgroundColor: Color(0xFF26A69A).withOpacity(0.8),
+
       ),
+      backgroundColor: Color(0xFFe6f0fa),
+
       body: PlankPageView(
         isPlankActive: isPlankActive,
         currentPlankDuration: currentPlankDuration,
