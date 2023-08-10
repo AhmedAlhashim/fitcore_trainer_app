@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     ),
     //Here I CAN Add more TrainingItem instances
   ];
-// Design
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
