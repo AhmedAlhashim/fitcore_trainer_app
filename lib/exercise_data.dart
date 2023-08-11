@@ -30,6 +30,10 @@ List<Exercise> exercises = [
     title: 'Upcoming...',
     icon: Icons.upcoming_rounded,
     page: HomePage(),
+  ), Exercise(
+    title: 'Upcoming...',
+    icon: Icons.upcoming_rounded,
+    page: HomePage(),
   ),
 
   // Add more exercises here

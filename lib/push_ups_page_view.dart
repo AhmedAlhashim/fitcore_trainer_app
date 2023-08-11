@@ -31,8 +31,13 @@ class PushUpsPageView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Touch your nose to the circle to start counting"),
-          SizedBox(height: 10,),
+          const Text(
+            "Touch your nose to the circle to start counting",
+            style: TextStyle(fontSize: 18),
+          ),
+          SizedBox(
+            height: 10,
+          ),
           GestureDetector(
             onTap: incrementPushUps,
             child: Container(
@@ -89,9 +94,8 @@ class PushUpsPageView extends StatelessWidget {
             onPressed: resetPushUps,
             child: Text('Reset Count'),
             style: ElevatedButton.styleFrom(
-
-              foregroundColor: Colors.white,
               backgroundColor: Colors.red,
+              shadowColor: Colors.grey,
               textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             ),
