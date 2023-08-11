@@ -23,12 +23,12 @@ class PlankPageView extends StatelessWidget {
             'Tap the circle to start the timer',
             style: TextStyle(fontSize: 25),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 10),
           GestureDetector(
             onTap: togglePlankTimer,
             child: Container(
-              width: 350,
-              height: 350,
+              width: 300,
+              height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xFF4DB6AC).withOpacity(0.5),
@@ -58,7 +58,7 @@ class PlankPageView extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 100),
           Text(
             'Your Longest Plank:',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),

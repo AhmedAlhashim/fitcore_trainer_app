@@ -41,8 +41,8 @@ class PushUpsPageView extends StatelessWidget {
           GestureDetector(
             onTap: incrementPushUps,
             child: Container(
-              width: 350,
-              height: 350,
+              width: 300,
+              height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xFF4DB6AC).withOpacity(0.5),
@@ -89,7 +89,7 @@ class PushUpsPageView extends StatelessWidget {
             '$highestPushUpCount push-ups (${getRank(highestPushUpCount)})',
             style: TextStyle(fontSize: 20, color: Colors.grey),
           ),
-          SizedBox(height: 75),
+          SizedBox(height: 30),
           ElevatedButton(
             onPressed: resetPushUps,
             child: Text('Reset Count'),
