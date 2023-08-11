@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'timer_util.dart'; // Import the TimerUtil class
 
-class PlankPageView extends StatelessWidget {
-  final Duration currentPlankDuration;
+class PlankPageView extends StatefulWidget {
+  late final Duration currentPlankDuration;
   final Duration longestPlankDuration;
   final bool isPlankActive;
   final VoidCallback togglePlankTimer;
@@ -9,9 +10,38 @@ class PlankPageView extends StatelessWidget {
   PlankPageView({
     required this.currentPlankDuration,
     required this.longestPlankDuration,
-    required this.isPlankActive ,
+    required this.isPlankActive,
     required this.togglePlankTimer,
   });
+
+  @override
+  _PlankPageViewState createState() => _PlankPageViewState();
+}
+
+class _PlankPageViewState extends State<PlankPageView> {
+  late TimerUtil _timerUtil;
+
+  @override
+  void initState() {
+    super.initState();
+    _timerUtil = TimerUtil();
+  }
+
+  @override
+  void dispose() {
+    _timerUtil.stopTimer();
+    super.dispose();
+  }
+
+  String formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+
+    final minutes = twoDigits(duration.inMinutes);
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    // final milliseconds = (duration.inMilliseconds % 1000) ~/ 10; // Get milliseconds from 0 to 99
+
+    return '$minutes:$seconds';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +55,18 @@ class PlankPageView extends StatelessWidget {
           ),
           SizedBox(height: 10),
           GestureDetector(
-            onTap: togglePlankTimer,
+            onTap: () {
+              widget.togglePlankTimer();
+              if (widget.isPlankActive) {
+                _timerUtil.startTimer((elapsedTime) {
+                  // setState(() {
+                  //   widget.currentPlankDuration = Duration(milliseconds: elapsedTime);
+                  // });
+                });
+              } else {
+                _timerUtil.stopTimer();
+              }
+            },
             child: Container(
               width: 300,
               height: 300,
@@ -43,14 +84,14 @@ class PlankPageView extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  isPlankActive
-                      ? '${currentPlankDuration.inSeconds}s'
-                      : longestPlankDuration.inSeconds > 0
-                          ? 'Record\n${longestPlankDuration.inSeconds}s'
-                          : 'Start',
+                  widget.isPlankActive
+                      ? formatDuration(widget.currentPlankDuration)
+                      : widget.longestPlankDuration.inSeconds > 0
+                      ? 'Currant Plank\n${formatDuration(widget.currentPlankDuration)}'
+                      : 'Start',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 80,
+                    fontSize: 40,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -64,7 +105,7 @@ class PlankPageView extends StatelessWidget {
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           Text(
-            '${longestPlankDuration.inSeconds}s',
+            formatDuration(widget.longestPlankDuration),
             style: TextStyle(
               fontSize: 32,
               color: Color(0xFF4DB6AC),
