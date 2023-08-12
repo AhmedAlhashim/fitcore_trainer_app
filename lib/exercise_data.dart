@@ -36,5 +36,5 @@ List<Exercise> exercises = [
     page: HomePage(),
   ),
 
-  // Add more exercises here
+  //I can add more exercises from here
 ];
