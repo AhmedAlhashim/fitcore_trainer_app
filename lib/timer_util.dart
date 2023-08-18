@@ -1,4 +1,5 @@
 import 'dart:async';
+// Single Responsibility Principle's applied here
 
 class TimerUtil {
   late Timer _timer;

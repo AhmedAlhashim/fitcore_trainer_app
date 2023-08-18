@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+
+// Single Responsibility Principle
+// Interface Segregation Principle : Clients depend on the specific interfaces they use (StatelessWidget).
+// both applied here
 class PushUpsPageView extends StatelessWidget {
   final int pushUpCount;
   final int highestPushUpCount;

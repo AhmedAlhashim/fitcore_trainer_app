@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'app_drawer.dart';
 import 'exercise_data.dart';
+// Single Responsibility Principle
 
+// Open/Closed Principle:
+// TrainingGridItem widget's behavior can be customized with different exercise data.
+
+// Dependency Inversion Principle:
+// Direct use of concrete classes for UI components.
 
 class HomePage extends StatelessWidget {
   @override
@@ -49,7 +55,16 @@ class TrainingGridItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: Color(0xFF4DB6AC),
             borderRadius: BorderRadius.circular(25),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.25),
+                spreadRadius: 5,
+                blurRadius: 20,
+                offset: Offset(0, 3),
+              ),
+            ],
           ),
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -63,7 +78,7 @@ class TrainingGridItem extends StatelessWidget {
                 exercise.title,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),

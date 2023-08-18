@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'timer_util.dart'; // Import the TimerUtil class
 
+// Single Responsibility Principle
+// Interface Segregation Principle : Clients depend on the specific interfaces they use (StatelessWidget).
+// both applied here.
 class PlankPageView extends StatefulWidget {
   late final Duration currentPlankDuration;
   final Duration longestPlankDuration;

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'exercise_data.dart';
 
+
+// Open/Closed Principle
+// Dependency Inversion Principle (DIP): High-level module (AppDrawer) depends on abstractions (Widget).
+// both applied here
 class AppDrawer extends StatelessWidget {
   final List<Exercise> exercises; // Receive the exercises list
 

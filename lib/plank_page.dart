@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'plank_page_view.dart';
 
+// Single Responsibility Principle
+// Dependency Inversion Principle : High-level module (PlankPage) depends on abstractions (StatefulWidget, StatelessWidget).
+
 class PlankPage extends StatefulWidget {
   @override
   _PlankPageState createState() => _PlankPageState();

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'push_ups_page_view.dart';
 
+
+// Dependency Inversion Principle (DIP):
+// High-level module (PushUpsPage) depends on abstractions (StatefulWidget, StatelessWidget).
+// is applied here
 class PushUpsPage extends StatefulWidget {
   @override
   _PushUpsPageState createState() => _PushUpsPageState();
