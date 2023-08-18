@@ -4,7 +4,7 @@ import 'exercise_data.dart';
 // Single Responsibility Principle
 
 // Open/Closed Principle:
-// TrainingGridItem widget's behavior can be customized with different exercise data.
+// TrainingGridItem widget's behavior IS customized with different exercise data.
 
 // Dependency Inversion Principle:
 // Direct use of concrete classes for UI components.

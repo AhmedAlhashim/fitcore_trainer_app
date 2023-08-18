@@ -36,7 +36,7 @@ class PushUpsPageView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "Touch your nose to the circle to start counting",
+            "Touch the circle with your nose to start the push-Ups",
             style: TextStyle(fontSize: 18),
           ),
           SizedBox(

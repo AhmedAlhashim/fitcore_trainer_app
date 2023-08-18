@@ -37,7 +37,8 @@ List<Exercise> exercises = [
     title: 'Upcoming...',
     icon: Icons.upcoming_rounded,
     page: HomePage(),
-  ), Exercise(
+  ),
+  Exercise(
     title: 'Upcoming...',
     icon: Icons.upcoming_rounded,
     page: HomePage(),
